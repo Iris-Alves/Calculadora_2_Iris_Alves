@@ -42,12 +42,16 @@ def calculadora_v2(num1: float, num2: float, operador: str) -> float:
 def calculadora_v3(num1: float, num2: float, operador: str) -> float:
     operadores = {
         "+": operator.add,
+        "-": operator.add,
+        "/": operator.add,
+        "*": operator.add,
         "%": operator.mod,
         "^": operator.pow}
 
     if operador in operadores:
         return operadores[operador](num1, num2)
-
+    else:
+        print("Erro! Opção inválida! ")
     return float("nan")
 
 # esta versão quando tentamos o expoente de 0, ele retornava um erro, foi retificado
@@ -74,7 +78,7 @@ if __name__ == "__main__":
             numero1: float = float(input('Introduza o primeiro número:'))
             numero2: float = float(input('Introduza o segundo número:'))
             operacao: str = input('Introduza a operação a realizar (+ - / *) ou (% ^):')
-            print(f'O resultado: {calculadora(numero1, numero2, operacao)}')
+            print(f'O resultado: {calculadora_v3(numero1, numero2, operacao)}')
             print()
             cont: str = input('Deseja continuar? (s/n):').lower()
             if cont == 'n':
